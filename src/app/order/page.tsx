@@ -55,7 +55,7 @@ export default function order() {
       if (!parsed) return;
 
       const res = await axios.get(
-        `/order/user/${parsed.state.user_id}/status/${state}`
+        `/ai/order/user/${parsed.state.user_id}/status/${state}`
       );
 
       setOrders(res.data.orders);
@@ -76,7 +76,7 @@ export default function order() {
       if (!parsed) return;
 
       const res = await axios.get(
-        `/order/user/${parsed.state.user_id}/status/${state}`
+        `/ai/order/user/${parsed.state.user_id}/status/${state}`
       );
 
       setOrders(res.data.orders);

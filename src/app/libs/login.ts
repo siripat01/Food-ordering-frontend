@@ -3,5 +3,5 @@ export const login = () => {
         return true
     }
 
-    window.location.href = `https://dd1a151f79e7.ngrok-free.app/auth/line?origin=web`;
+    window.location.href = `https://20569a98bd05.ngrok-free.app/api/ai/auth/line?origin=web`;
 };

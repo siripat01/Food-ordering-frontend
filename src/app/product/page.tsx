@@ -27,7 +27,7 @@ export default function Product() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await axios.get("/product");
+      const res = await axios.get("/ai/product");
       setProducts(res.data.products || []); // avoid undefined
 
       const userData = localStorage.getItem("user-storage");

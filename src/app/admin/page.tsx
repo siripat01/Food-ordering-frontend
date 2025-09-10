@@ -47,12 +47,12 @@ export default function order() {
       payload.userId = userId;
     }
 
-    await axios.put(`/order/${orderId}`, payload);
+    await axios.put(`/ai/order/${orderId}`, payload);
 
-    const res = await axios.get(`/order/status/${state}`);
+    const res = await axios.get(`/ai/order/status/${state}`);
     setOrders(res.data.orders);
 
-    axios.post("/message/push/order-update", {
+    axios.post("/ai/message/push/order-update", {
       order_id: orderId,
       status: status,
     });
@@ -76,7 +76,7 @@ export default function order() {
 
       if (!parsed) return;
 
-      const res = await axios.get(`/order/status/${state}`);
+      const res = await axios.get(`/ai/order/status/${state}`);
 
       console.log(res.data.orders);
 
@@ -97,7 +97,7 @@ export default function order() {
 
       if (!parsed) return;
 
-      const res = await axios.get(`/order/status/${state}`);
+      const res = await axios.get(`/ai/order/status/${state}`);
 
       setOrders(res.data.orders);
     };

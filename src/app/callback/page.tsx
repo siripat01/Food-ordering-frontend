@@ -19,7 +19,7 @@ export default function Callback() {
         localStorage.setItem("authToken", token);
 
         try {
-          const res = await axios.get(`/users/me?token=${token}`);
+          const res = await axios.get(`/ai/users/me?token=${token}`);
           console.log("User info:", JSON.parse(res.data));
 
           const useData = JSON.parse(res.data)

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://dd1a151f79e7.ngrok-free.app"
+axios.defaults.baseURL = "https://20569a98bd05.ngrok-free.app/api"
 
 axios.defaults.withCredentials = true;
 

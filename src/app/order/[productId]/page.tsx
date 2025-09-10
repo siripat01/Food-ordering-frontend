@@ -50,7 +50,7 @@ export default function ProductId({
 
       console.log(orderPayload);
       
-      const res = await axios.post("/order", orderPayload);
+      const res = await axios.post("/ai/order", orderPayload);
       console.log(res);
       
 
@@ -90,7 +90,7 @@ export default function ProductId({
     async function resolveParams() {
       const resolved = await params;
 
-      const res = await axios.get(`product?product_id=${resolved.productId}`);
+      const res = await axios.get(`/ai/product?product_id=${resolved.productId}`);
       setProduct(res.data);
     }
     resolveParams();

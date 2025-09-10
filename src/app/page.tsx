@@ -1,5 +1,5 @@
 "use client";
-import axios from "axios";
+import axios from "./libs/axios";
 import Image from "next/image";
 import { login } from "./libs/login";
 import Navbar from "./components/Navbar";
@@ -31,10 +31,10 @@ export default function Home() {
 
       if (parsed?.state?.user_id) {
         rec = await axios(
-          `http://localhost:8080/recommendations/hybrid/${parsed.state.user_id}?n_recommendations=5`
+          `ml/recommendations/hybrid/${parsed.state.user_id}?n_recommendations=5`
         );
       } else {
-        rec = await axios(`http://localhost:8080/trending?n_recommendations=5`);
+        rec = await axios(`ml/trending?n_recommendations=5`);
       }
 
       setRecommend(rec.data);
