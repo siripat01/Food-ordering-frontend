@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { login } from "../libs/login";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
-import axios from "../libs/axios";
+import api from "../libs/axios";
 
 type ProductType = {
   _id: string;
@@ -47,12 +47,12 @@ export default function order() {
       payload.userId = userId;
     }
 
-    await axios.put(`/ai/order/${orderId}`, payload);
+    await api.put(`/ai/order/${orderId}`, payload);
 
-    const res = await axios.get(`/ai/order/status/${state}`);
+    const res = await api.get(`/ai/order/status/${state}`);
     setOrders(res.data.orders);
 
-    axios.post("/ai/message/push/order-update", {
+    api.post("/ai/message/push/order-update", {
       order_id: orderId,
       status: status,
     });
@@ -76,7 +76,7 @@ export default function order() {
 
       if (!parsed) return;
 
-      const res = await axios.get(`/ai/order/status/${state}`);
+      const res = await api.get(`/ai/order/status/${state}`);
 
       console.log(res.data.orders);
 
@@ -97,7 +97,7 @@ export default function order() {
 
       if (!parsed) return;
 
-      const res = await axios.get(`/ai/order/status/${state}`);
+      const res = await api.get(`/ai/order/status/${state}`);
 
       setOrders(res.data.orders);
     };

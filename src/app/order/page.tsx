@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { login } from "../libs/login";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
-import axios from "../libs/axios";
+import api from "../libs/axios";
 
 type ProductType = {
   _id: string;
@@ -54,7 +54,7 @@ export default function order() {
 
       if (!parsed) return;
 
-      const res = await axios.get(
+      const res = await api.get(
         `/ai/order/user/${parsed.state.user_id}/status/${state}`
       );
 
@@ -75,7 +75,7 @@ export default function order() {
 
       if (!parsed) return;
 
-      const res = await axios.get(
+      const res = await api.get(
         `/ai/order/user/${parsed.state.user_id}/status/${state}`
       );
 

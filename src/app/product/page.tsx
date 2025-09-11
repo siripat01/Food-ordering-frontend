@@ -1,5 +1,5 @@
 "use client";
-import axios from "../libs/axios";
+import api from "../libs/axios";
 import React, { useEffect, useState } from "react";
 import { onWebsiteLoaded } from "../libs/checkLoad";
 import Navbar from "../components/Navbar";
@@ -27,7 +27,7 @@ export default function Product() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await axios.get("/ai/product");
+      const res = await api.get("/ai/product");
       setProducts(res.data.products || []); // avoid undefined
 
       const userData = localStorage.getItem("user-storage");
@@ -36,11 +36,11 @@ export default function Product() {
       // let rec = null;
 
       // if (!parsed) {
-      //   rec = await axios.get(
+      //   rec = await api.get(
       //     "http://localhost:8080/trending?n_recommendations=3"
       //   );
       // } else {
-      //   rec = await axios.get(
+      //   rec = await api.get(
       //     `http://localhost:8080/recommendations/hybrid/${parsed.state.user_id}?n_recommendations=3`
       //   );
       // }

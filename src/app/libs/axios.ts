@@ -1,7 +1,13 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://e74f1c92b188.ngrok-free.app/api"
+const api = axios.create({
+  baseURL: "https://d19b55b1af62.ngrok-free.app/api",
+  withCredentials: true,
+  headers: {
+    "ngrok-skip-browser-warning": true,
+    // "User-Agent": "MyCustomClient/1.0"
 
-axios.defaults.withCredentials = true;
+  }
+});
 
-export default axios;
+export default api;

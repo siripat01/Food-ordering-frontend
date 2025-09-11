@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import axios from "../libs/axios";
+import api from "../libs/axios";
 import { useUserStore } from "../store/user";
 
 export default function Callback() {
@@ -19,7 +19,7 @@ export default function Callback() {
         localStorage.setItem("authToken", token);
 
         try {
-          const res = await axios.get(`/ai/users/me?token=${token}`);
+          const res = await api.get(`/ai/users/me?token=${token}`);
           console.log("User info:", JSON.parse(res.data));
 
           const useData = JSON.parse(res.data)

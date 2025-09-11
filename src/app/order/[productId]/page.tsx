@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/app/components/Loading";
-import axios from "../../libs/axios";
+import api from "../../libs/axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "@/app/components/Navbar";
 import { useRouter } from "next/navigation";
@@ -50,7 +50,7 @@ export default function ProductId({
 
       console.log(orderPayload);
       
-      const res = await axios.post("/ai/order", orderPayload);
+      const res = await api.post("/ai/order", orderPayload);
       console.log(res);
       
 
@@ -90,7 +90,7 @@ export default function ProductId({
     async function resolveParams() {
       const resolved = await params;
 
-      const res = await axios.get(`/ai/product?product_id=${resolved.productId}`);
+      const res = await api.get(`/ai/product?product_id=${resolved.productId}`);
       setProduct(res.data);
     }
     resolveParams();
